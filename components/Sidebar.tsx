@@ -23,6 +23,8 @@ const sections = [
   { id: "ratios", label: "Ratios" },
   { id: "cash-flows", label: "Cash Flows" },
   { id: "trends", label: "Trends" },
+  { id: "tools-used", label: "Tools Used" },
+  { id: "references", label: "References" },
   { id: "notes", label: "Notes & Methodology" },
 ];
 

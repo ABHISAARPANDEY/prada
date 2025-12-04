@@ -19,37 +19,62 @@ export default function PradaLogo({ className = "", size = "md" }: PradaLogoProp
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`${sizeClasses[size]} ${className}`}
+      className={`${sizeClasses[size]} ${className} relative`}
+      style={{ 
+        perspective: "1000px",
+        transformStyle: "preserve-3d"
+      }}
     >
-      <svg
-        viewBox="0 0 200 60"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      <motion.div
+        animate={{
+          rotateY: 360,
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          transformStyle: "preserve-3d",
+          width: "100%",
+          height: "100%",
+        }}
         className="w-full h-full"
       >
-        {/* Prada Text Logo */}
-        <text
-          x="10"
-          y="40"
-          fontFamily="Playfair Display, serif"
-          fontSize="42"
-          fontWeight="700"
-          fill="currentColor"
-          letterSpacing="2"
+        <svg
+          viewBox="0 0 200 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full"
+          style={{
+            backfaceVisibility: "visible",
+            WebkitBackfaceVisibility: "visible",
+          }}
         >
-          PRADA
-        </text>
-        {/* Decorative line */}
-        <line
-          x1="10"
-          y1="45"
-          x2="190"
-          y2="45"
-          stroke="currentColor"
-          strokeWidth="1"
-          opacity="0.3"
-        />
-      </svg>
+          {/* Prada Text Logo */}
+          <text
+            x="10"
+            y="40"
+            fontFamily="Playfair Display, serif"
+            fontSize="42"
+            fontWeight="700"
+            fill="currentColor"
+            letterSpacing="2"
+          >
+            PRADA
+          </text>
+          {/* Decorative line */}
+          <line
+            x1="10"
+            y1="45"
+            x2="190"
+            y2="45"
+            stroke="currentColor"
+            strokeWidth="1"
+            opacity="0.3"
+          />
+        </svg>
+      </motion.div>
     </motion.div>
   );
 }

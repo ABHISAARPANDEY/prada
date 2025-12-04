@@ -23,6 +23,9 @@ import ExplanationCard from "@/components/ExplanationCard";
 import InfoTooltip from "@/components/InfoTooltip";
 import HorizontalAnalysis from "@/components/HorizontalAnalysis";
 import VerticalAnalysis from "@/components/VerticalAnalysis";
+import LandingBanner from "@/components/LandingBanner";
+import ToolsUsed from "@/components/ToolsUsed";
+import References from "@/components/References";
 
 export default function Dashboard() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -115,6 +118,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-prada-light">
+      <LandingBanner />
       <Navbar
         onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
         isMenuOpen={isMenuOpen}
@@ -851,6 +855,16 @@ export default function Dashboard() {
                   </p>
                 </div>
               </motion.div>
+            </section>
+
+            {/* Tools Used Section */}
+            <section id="tools-used" className="mb-20">
+              <ToolsUsed />
+            </section>
+
+            {/* References Section */}
+            <section id="references" className="mb-20">
+              <References />
             </section>
 
             {/* Notes & Methodology Section */}

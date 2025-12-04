@@ -25,7 +25,7 @@ const founders: Founder[] = [
       "Built reputation for exceptional quality and craftsmanship",
       "Created iconic designs that became symbols of Italian luxury",
     ],
-    image: "/api/placeholder/400/500",
+    image: "/images/founders/mario-prada.jpg",
   },
   {
     name: "Miuccia Prada",
@@ -41,7 +41,7 @@ const founders: Founder[] = [
       "Led PRADA to become a publicly traded company",
       "Multiple CFDA Awards and fashion industry recognition",
     ],
-    image: "/api/placeholder/400/500",
+    image: "/images/founders/miuccia-prada.jpg",
   },
   {
     name: "Patrizio Bertelli",
@@ -56,7 +56,7 @@ const founders: Founder[] = [
       "Established PRADA as a leader in sustainable luxury",
       "Achieved record financial performance and profitability",
     ],
-    image: "/api/placeholder/400/500",
+    image: "/images/founders/patrizio-bertelli.jpg",
   },
 ];
 
@@ -89,9 +89,22 @@ export default function FoundersSection() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="bg-gradient-to-br from-white via-prada-light/20 to-white rounded-2xl p-8 border border-prada-light/20 shadow-xl hover:shadow-2xl transition-all duration-300 group"
           >
-            {/* Founder Image Placeholder */}
-            <div className="relative mb-6 h-64 bg-gradient-to-br from-prada-black via-prada-dark to-prada-black rounded-xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
+            {/* Founder Image */}
+            <div className="relative mb-6 h-64 bg-gradient-to-br from-prada-black via-prada-dark to-prada-black rounded-xl overflow-hidden group/image">
+              <img
+                src={founder.image}
+                alt={founder.name}
+                className="w-full h-full object-cover opacity-90 group-hover/image:opacity-100 transition-opacity duration-300"
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              {/* Fallback placeholder if image doesn't load */}
+              <div className="absolute inset-0 flex items-center justify-center hidden">
                 <div className="text-center">
                   <div className="w-32 h-32 bg-prada-gold/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Award className="w-16 h-16 text-prada-gold" />
